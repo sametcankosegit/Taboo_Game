@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tabu_game/taboo_word.dart';
+import 'package:tabu_game/taboo_game.dart';
 
 void main() {
   runApp(const MyApp());
