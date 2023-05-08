@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tabu_game/about_us_page.dart';
+import 'package:tabu_game/question_screen.dart';
 import 'package:tabu_game/settings_page.dart';
 import 'package:tabu_game/timer.dart';
 
@@ -81,6 +82,17 @@ class _TabooGameState extends State<TabooGame> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.question_mark),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QuestionsPage()),
+                );
+              },
+            ),
+          ],
           backgroundColor: Colors.transparent,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
