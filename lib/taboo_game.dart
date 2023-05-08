@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:tabu_game/about_us_page.dart';
+import 'package:tabu_game/settings_page.dart';
 import 'package:tabu_game/timer.dart';
 
 void main() => runApp(TabooGame());
@@ -247,7 +249,12 @@ class _TabooGameState extends State<TabooGame> {
               ListTile(
                 leading: Icon(Icons.settings),
                 title: const Text('Ayarlar'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsPage()),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.info),
@@ -255,7 +262,7 @@ class _TabooGameState extends State<TabooGame> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TabooGame()),
+                    MaterialPageRoute(builder: (context) => AboutUsPage()),
                   );
                 },
               ),
