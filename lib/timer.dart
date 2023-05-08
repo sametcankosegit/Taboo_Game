@@ -9,7 +9,7 @@ class TimeCounter extends StatefulWidget {
 }
 
 class _TimeCounterState extends State<TimeCounter> {
-  int _counter = 90;
+  int _counter = 5;
   late Timer _timer;
 
   @override
@@ -23,7 +23,7 @@ class _TimeCounterState extends State<TimeCounter> {
           _timer.cancel();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => PointScreen()),
+            MaterialPageRoute(builder: (context) => PointsPage()),
           );
         }
       });
