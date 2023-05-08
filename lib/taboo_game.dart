@@ -252,7 +252,12 @@ class _TabooGameState extends State<TabooGame> {
               ListTile(
                 leading: Icon(Icons.info),
                 title: const Text('Hakkında'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TabooGame()),
+                  );
+                },
               ),
             ],
           ),
