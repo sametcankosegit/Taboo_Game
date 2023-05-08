@@ -9,7 +9,7 @@ class TimeCounter extends StatefulWidget {
 }
 
 class _TimeCounterState extends State<TimeCounter> {
-  int _counter = 5;
+  int _counter = 90;
   late Timer _timer;
 
   @override

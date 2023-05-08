@@ -27,6 +27,10 @@ class _QuestionsPageState extends State<QuestionsPage> {
         'Geliştirilmesi Gerek'
       ]
     },
+    {
+      'question': 'Yeni uygulamalarımızdan haberdar mısınız?',
+      'options': ['Evet', 'Emin Değilim', 'Hayır', 'İlgimi Çekmedi']
+    },
   ];
 
   String? _selectedOption1;
