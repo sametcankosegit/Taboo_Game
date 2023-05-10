@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:tabu_game/point_screen.dart';
+import 'package:tabu_game/taboo_game.dart';
 
 class TimeCounter extends StatefulWidget {
+  final int? teamOnePoints;
+  final int? teamTwoPoints;
+
+  TimeCounter({
+    this.teamOnePoints,
+    this.teamTwoPoints,
+  });
+
   @override
   _TimeCounterState createState() => _TimeCounterState();
 }
 
 class _TimeCounterState extends State<TimeCounter> {
-  int _counter = 90;
+  int _counter = 130;
   late Timer _timer;
 
   @override
@@ -23,7 +31,12 @@ class _TimeCounterState extends State<TimeCounter> {
           _timer.cancel();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => PointsPage()),
+            MaterialPageRoute(
+              builder: (context) => PointsPage(
+                teamOnePoints: widget.teamOnePoints ?? 0,
+                teamTwoPoints: widget.teamTwoPoints ?? 0,
+              ),
+            ),
           );
         }
       });

@@ -41,6 +41,8 @@ class _TabooGameState extends State<TabooGame> {
   int _points = 0;
   int teamOnePoints = 0;
   int teamTwoPoints = 0;
+  bool isFirstTeamTurn = true;
+  bool isSecondTeamTurn = false;
 
   void _passWord() {
     setState(
@@ -54,27 +56,27 @@ class _TabooGameState extends State<TabooGame> {
   }
 
   void _addPoint() {
-    setState(
-      () {
-        _points++;
-        if (_words.isNotEmpty) {
-          _words.shuffle(Random());
-          _currentIndex = 0;
-        }
-      },
-    );
+    setState(() {
+      _points++;
+      if (_words.isNotEmpty) {
+        _words.shuffle(Random());
+        _currentIndex = 0;
+      }
+      isFirstTeamTurn = !isFirstTeamTurn;
+      isSecondTeamTurn = !isSecondTeamTurn;
+    });
   }
 
   void _removePoint() {
-    setState(
-      () {
-        _points--;
-        if (_words.isNotEmpty) {
-          _words.shuffle(Random());
-          _currentIndex = 0;
-        }
-      },
-    );
+    setState(() {
+      _points--;
+      if (_words.isNotEmpty) {
+        _words.shuffle(Random());
+        _currentIndex = 0;
+      }
+      isFirstTeamTurn = !isFirstTeamTurn;
+      isSecondTeamTurn = !isSecondTeamTurn;
+    });
   }
 
   @override
@@ -120,6 +122,13 @@ class _TabooGameState extends State<TabooGame> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    isFirstTeamTurn ? 'Birinci Takım' : 'İkinci Takım',
+                    style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
                   TimeCounter(),
                   const Text(
                     'Tabu Oyunu',
@@ -207,7 +216,7 @@ class _TabooGameState extends State<TabooGame> {
                       ),
                       SizedBox(height: 10),
                       SizedBox(
-                        width: 130,
+                        width: 90,
                       ),
                       ElevatedButton(
                         onPressed: _removePoint,
